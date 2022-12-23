@@ -5,11 +5,12 @@
 // 8 7,8 -7,1 9
 
 Console.Clear();
-System.Console.WriteLine("Введите размер массив M x N");
+System.Console.WriteLine("Введите размер массив m x n:");
 int m = inputNumber("m = ");
 int n = inputNumber("n = ");
 double[,] arr = new double[m, n];
-PrintArray(FillArray(m, n));
+FillArray(arr);
+PrintArray(arr);
 
 
 int inputNumber(string message)
@@ -29,17 +30,16 @@ int inputNumber(string message)
     return number;
 }
 
-double[,] FillArray(int m, int n)
+void FillArray(double[,] array)
 {
     Random rand = new Random();
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            arr[i, j] = Math.Round(rand.Next(-10, 11) + rand.NextDouble(), 2);
+            array[i, j] = Math.Round(rand.Next(-10, 11) + rand.NextDouble(), 2);
         }
     }
-    return arr;
 }
 
 void PrintArray(double[,] arr)
